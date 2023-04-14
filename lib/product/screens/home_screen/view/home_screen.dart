@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_rick_and_morty_app/core/constants/colors.dart';
 import 'package:flutter_rick_and_morty_app/product/screens/home_screen/cubit/home_screen_cubit.dart';
 import 'package:flutter_rick_and_morty_app/product/screens/home_screen/service/home_screen_service.dart';
 import 'package:flutter_rick_and_morty_app/product/screens/home_screen/states/home_screen_states.dart';
@@ -35,12 +36,25 @@ class HomeScreen extends StatelessWidget {
   Widget _buildLoadedWidget(BuildContext context, HomeScreenLoadedState state) {
     return Column(
       children: [
-        Expanded(flex: 15, child: LocationsHorizontalListView(locations: state.locations)),
+        Expanded(flex: 15, child: LocationsHorizontalListView(locations: state.locations, state: state)),
         Expanded(
           flex: 85,
-          child: state.fetchCharactersLoading ? const Center(child: CircularProgressIndicator()) : CharactersListView(characters: state.characters),
+          child: state.fetchCharactersLoading
+              ? const Center(child: CircularProgressIndicator())
+              : state.characters.isEmpty
+                  ? _noCharacterFound(context)
+                  : CharactersListView(characters: state.characters),
         ),
       ],
+    );
+  }
+
+  Center _noCharacterFound(BuildContext context) {
+    return Center(
+      child: Text(
+        context.watch<HomeScreenCubit>().errorMessage,
+        style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: CustomColors.black),
+      ),
     );
   }
 

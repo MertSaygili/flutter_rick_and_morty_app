@@ -6,16 +6,16 @@ import 'package:flutter_rick_and_morty_app/feature/models/character/character.da
 import 'package:flutter_rick_and_morty_app/feature/models/location/location.dart';
 
 abstract class HomeScreenService {
-  Future<List<Location>?> getAllLocations();
+  Future<List<Location>?> getAllLocations(int page);
   Future<List<Location>?> getCharacterFilteredByLocation(String locationName);
   Future<Character?> getCharacterById(String urlId);
 }
 
 class HomeScreenServiceImpl implements HomeScreenService {
   @override
-  Future<List<Location>?> getAllLocations() async {
+  Future<List<Location>?> getAllLocations(int page) async {
     try {
-      var response = await Dio().get(Constants.LOCATION_BASE_URL);
+      var response = await Dio().get('${Constants.LOCATION_BASE_URL}/?page=$page');
       if (response.statusCode == Constants.ok) {
         List<Location> locations = Location.getLocationsSnapshot(response.data['results']);
         return locations;

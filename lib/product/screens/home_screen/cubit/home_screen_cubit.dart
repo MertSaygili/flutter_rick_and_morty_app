@@ -9,20 +9,31 @@ class HomeScreenCubit extends Cubit<HomeScreenStates> {
   HomeScreenCubit(this.service) : super(const HomeScreenInitialState());
 
   final HomeScreenService service;
+  String errorMessage = 'No Character Found!';
   String locationName = 'Earth (C-137)';
+
   List<Location> locations = [];
   List<Location> filteredLocation = [];
   List<Character> characters = [];
   bool fetchCharactersLoading = false;
+  int locationPage = 1;
+  bool locationPageLimit = false;
 
   void getLocations() async {
     emit(const HomeScreenLoadingState());
     // get all locations
-    locations = await service.getAllLocations() ?? [];
+    locations = await service.getAllLocations(locationPage++) ?? [];
     // get filtered location by name
     filteredLocation = await service.getCharacterFilteredByLocation(locationName) ?? [];
     emit(HomeScreenLoadedState(locations, filteredLocation, characters, fetchCharactersLoading, locationName));
     _getFilteredLocationCharacters(locationName);
+  }
+
+  void getMoreLocations() async {
+    List<Location> newLocation = await service.getAllLocations(locationPage++) ?? [];
+    if (newLocation.length < 20 || newLocation.isEmpty) locationPageLimit = true;
+    locations.addAll(newLocation);
+    emit(HomeScreenLoadedState(locations, filteredLocation, characters, fetchCharactersLoading, locationName));
   }
 
   void changeFilteredLocation(String locationName) async {
@@ -33,8 +44,10 @@ class HomeScreenCubit extends Cubit<HomeScreenStates> {
   }
 
   void _getFilteredLocationCharacters(String locationName) async {
+    // set variables to default
     fetchCharactersLoading = true;
     characters = [];
+
     emit(HomeScreenLoadedState(locations, filteredLocation, characters, fetchCharactersLoading, locationName));
     for (int i = 0; i < filteredLocation[0].residents!.length; i++) {
       characters.add(await service.getCharacterById(filteredLocation[0].residents![i]) ?? Character());

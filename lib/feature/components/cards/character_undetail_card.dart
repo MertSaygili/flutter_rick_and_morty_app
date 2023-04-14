@@ -21,26 +21,30 @@ class CharacterUndetailCard extends StatelessWidget {
           child: Row(
             children: [
               _characterImage(),
-              Flexible(
-                child: Padding(
-                  padding: CustomPaddings().marginNormal,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(character.name ?? '', style: Theme.of(context).textTheme.headlineSmall, overflow: TextOverflow.ellipsis),
-                      SizedBox(height: Sizes().smallEmptySize),
-                      Text(character.origin?.name ?? '', style: Theme.of(context).textTheme.bodyMedium, overflow: TextOverflow.ellipsis),
-                      SizedBox(height: Sizes().smallEmptySize),
-                      Text('${character.species} - ${character.gender ?? ''}',
-                          style: Theme.of(context).textTheme.bodyMedium, overflow: TextOverflow.ellipsis, maxLines: 1),
-                      SizedBox(height: Sizes().smallEmptySize),
-                      Text(character.status ?? '', style: Theme.of(context).textTheme.bodyMedium),
-                    ],
-                  ),
-                ),
-              ),
+              _characterDetail(context),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Flexible _characterDetail(BuildContext context) {
+    return Flexible(
+      child: Padding(
+        padding: CustomPaddings().marginNormal,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(character.name ?? '', style: Theme.of(context).textTheme.headlineSmall, overflow: TextOverflow.ellipsis),
+            SizedBox(height: Sizes().smallEmptySize),
+            Text(character.origin?.name ?? '', style: Theme.of(context).textTheme.bodyMedium, overflow: TextOverflow.ellipsis),
+            SizedBox(height: Sizes().smallEmptySize),
+            Text('${character.species} - ${character.gender ?? ''}',
+                style: Theme.of(context).textTheme.bodyMedium, overflow: TextOverflow.ellipsis, maxLines: 1),
+            SizedBox(height: Sizes().smallEmptySize),
+            Text(character.status ?? '', style: Theme.of(context).textTheme.bodyMedium),
+          ],
         ),
       ),
     );
