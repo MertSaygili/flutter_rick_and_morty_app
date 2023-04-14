@@ -2,7 +2,7 @@ import 'package:flutter_rick_and_morty_app/feature/models/character/location.dar
 import 'package:flutter_rick_and_morty_app/feature/models/character/origin.dart';
 
 class Character {
-  String? id;
+  int? id;
   String? name;
   String? status;
   String? species;
@@ -11,7 +11,7 @@ class Character {
   Origin? origin;
   Location? location;
   String? image;
-  List<String>? episode;
+  List<dynamic>? episode;
   String? url;
   String? created;
 
@@ -32,18 +32,18 @@ class Character {
 
   factory Character.fromJson(var json) {
     return Character(
-      id: json['id'],
-      name: json['name'],
-      status: json['status'],
-      species: json['species'],
-      type: json['type'],
-      gender: json['gender'],
+      id: json['id'] as int?,
+      name: json['name'] as String?,
+      status: json['status'] as String?,
+      species: json['species'] as String?,
+      type: json['type'] as String?,
+      gender: json['gender'] as String?,
       origin: Origin.fromJson(json['origin']),
       location: Location.fromJson(json['location']),
-      image: json['image'],
-      episode: json['episode'].cast<String>(),
-      url: json['url'],
-      created: json['created'],
+      image: json['image'] as String?,
+      episode: json['episode'] as List<dynamic>?,
+      url: json['url'] as String?,
+      created: json['created'] as String?,
     );
   }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rick_and_morty_app/feature/models/location/location.dart';
-import 'package:flutter_rick_and_morty_app/feature/utils/attributes.dart';
-import 'package:flutter_rick_and_morty_app/feature/utils/sizes.dart';
+import 'package:flutter_rick_and_morty_app/feature/utils/attributes/attributes.dart';
+import 'package:flutter_rick_and_morty_app/feature/utils/attributes/sizes.dart';
 
 class LocationSmallCard extends StatelessWidget {
   const LocationSmallCard({super.key, required this.location});

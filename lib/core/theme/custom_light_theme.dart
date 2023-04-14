@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rick_and_morty_app/core/constants/colors.dart';
-import 'package:flutter_rick_and_morty_app/feature/utils/attributes.dart';
+import 'package:flutter_rick_and_morty_app/feature/utils/attributes/attributes.dart';
 
 ColorScheme _colorScheme = const ColorScheme(
   background: CustomColors.background,
@@ -25,15 +25,25 @@ class CustomLightTheme {
       cardTheme: _cardTheme(),
       textTheme: TextTheme(
         headlineSmall: TextStyle(
-          fontSize: 20,
+          fontSize: 22,
           fontStyle: FontStyle.normal,
+          fontWeight: FontWeight.w400,
           fontFamily: 'Marvel',
+          letterSpacing: 0.7,
           color: _colorScheme.onPrimary,
         ),
         headlineMedium: TextStyle(
           fontSize: 30,
           fontStyle: FontStyle.normal,
+          fontWeight: FontWeight.bold,
           fontFamily: 'Marvel',
+          color: _colorScheme.onPrimary,
+        ),
+        bodyMedium: TextStyle(
+          fontSize: 16,
+          fontStyle: FontStyle.italic,
+          fontFamily: 'Marvel',
+          letterSpacing: 1,
           color: _colorScheme.onPrimary,
         ),
       ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rick_and_morty_app/core/constants/colors.dart';
 import 'package:flutter_rick_and_morty_app/core/constants/constants.dart';
-import 'package:flutter_rick_and_morty_app/feature/utils/asset_address.dart';
-import 'package:flutter_rick_and_morty_app/feature/utils/attributes.dart';
-import 'package:flutter_rick_and_morty_app/feature/utils/sizes.dart';
+import 'package:flutter_rick_and_morty_app/feature/utils/attributes/asset_address.dart';
+import 'package:flutter_rick_and_morty_app/feature/utils/attributes/attributes.dart';
+import 'package:flutter_rick_and_morty_app/feature/utils/attributes/sizes.dart';
 
 class CustomMainAppbar extends StatefulWidget with PreferredSizeWidget {
   const CustomMainAppbar({super.key});

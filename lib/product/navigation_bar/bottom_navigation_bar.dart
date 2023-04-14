@@ -2,8 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rick_and_morty_app/core/route/app_route.gr.dart';
 import 'package:flutter_rick_and_morty_app/feature/components/appbar/custom_main_appbar.dart';
-import 'package:flutter_rick_and_morty_app/feature/utils/attributes.dart';
-import 'package:flutter_rick_and_morty_app/feature/utils/icons.dart';
+import 'package:flutter_rick_and_morty_app/feature/utils/attributes/attributes.dart';
+import 'package:flutter_rick_and_morty_app/feature/utils/attributes/icons.dart';
 
 class BottomNavigator extends StatelessWidget {
   const BottomNavigator({super.key});

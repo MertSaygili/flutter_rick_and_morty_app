@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rick_and_morty_app/product/screens/home_screen/cubit/home_screen_cubit.dart';
 import 'package:flutter_rick_and_morty_app/product/screens/home_screen/service/home_screen_service.dart';
 import 'package:flutter_rick_and_morty_app/product/screens/home_screen/states/home_screen_states.dart';
+import 'package:flutter_rick_and_morty_app/product/screens/home_screen/widgets/characters_list_view.dart';
 import 'package:flutter_rick_and_morty_app/product/screens/home_screen/widgets/locations_list_view.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -35,7 +36,10 @@ class HomeScreen extends StatelessWidget {
     return Column(
       children: [
         Expanded(flex: 15, child: LocationsHorizontalListView(locations: state.locations)),
-        const Expanded(flex: 85, child: SizedBox()),
+        Expanded(
+          flex: 85,
+          child: state.fetchCharactersLoading ? const Center(child: CircularProgressIndicator()) : CharactersListView(characters: state.characters),
+        ),
       ],
     );
   }
