@@ -2,8 +2,7 @@
     package="com.example.flutter_rick_and_morty_app">
    <application
         android:label="flutter_rick_and_morty_app"
-        android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:name="${applicationName}">
         <activity
             android:name=".MainActivity"
             android:exported="true"
