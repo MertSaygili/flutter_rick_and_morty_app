@@ -1,10 +1,9 @@
 import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_route/empty_router_widgets.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_rick_and_morty_app/product/navigation_bar/bottom_navigation_bar.dart';
 import 'package:flutter_rick_and_morty_app/product/screens/episodes_screen/episodes_screen.dart';
-import 'package:flutter_rick_and_morty_app/product/screens/home_screen/home_screen.dart';
+import 'package:flutter_rick_and_morty_app/product/screens/home_screen/view/home_screen.dart';
 import 'package:flutter_rick_and_morty_app/product/screens/search_screen/search_screen.dart';
 
 @MaterialAutoRouter(

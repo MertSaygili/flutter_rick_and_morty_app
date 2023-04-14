@@ -18,7 +18,7 @@ import 'package:flutter/material.dart' as _i7;
 import '../../product/navigation_bar/bottom_navigation_bar.dart'
     deferred as _i1;
 import '../../product/screens/episodes_screen/episodes_screen.dart' as _i4;
-import '../../product/screens/home_screen/home_screen.dart' as _i3;
+import '../../product/screens/home_screen/view/home_screen.dart' as _i3;
 import '../../product/screens/search_screen/search_screen.dart' as _i5;
 
 class AppRouter extends _i6.RootStackRouter {
