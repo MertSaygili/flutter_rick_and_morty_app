@@ -6,7 +6,9 @@ import 'package:flutter_rick_and_morty_app/feature/utils/attributes/attributes.d
 import 'package:flutter_rick_and_morty_app/feature/utils/attributes/sizes.dart';
 
 class CustomMainAppbar extends StatefulWidget with PreferredSizeWidget {
-  const CustomMainAppbar({super.key});
+  const CustomMainAppbar({super.key, this.returnBack});
+
+  final bool? returnBack;
 
   @override
   State<CustomMainAppbar> createState() => _CustomMainAppbarState();
@@ -21,7 +23,8 @@ class _CustomMainAppbarState extends State<CustomMainAppbar> {
     return AppBar(
       title: Text(Constants.APP_NAME, style: Theme.of(context).textTheme.headlineMedium),
       centerTitle: true,
-      leading: Image.asset(AssetAddress().appbarLogo, fit: BoxFit.cover),
+      leading: widget.returnBack == null ? Image.asset(AssetAddress().appbarLogo, fit: BoxFit.cover) : null,
+      automaticallyImplyLeading: widget.returnBack ?? false,
       leadingWidth: Sizes().appbarLeadingWidth,
       backgroundColor: CustomColors.primary,
       elevation: Attributes().mediumElevation,

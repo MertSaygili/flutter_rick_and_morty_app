@@ -23,7 +23,7 @@ class CharacterDetailScreen extends StatelessWidget {
     return BlocConsumer<CharacterDetailCubit, CharacterDetailStates>(
       listener: (context, state) {},
       builder: (context, state) => Scaffold(
-        appBar: const CustomMainAppbar(),
+        appBar: const CustomMainAppbar(returnBack: true),
         body: state is CharacterDetailInitialState
             ? _buildLoadingWidget(context)
             : state is CharacterDetailLoadedState
