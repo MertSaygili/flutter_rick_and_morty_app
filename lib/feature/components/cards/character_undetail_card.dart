@@ -26,16 +26,19 @@ class CharacterUndetailCard extends StatelessWidget {
       child: Padding(
         padding: CustomPaddings().paddingNormal,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(character.name ?? '', style: Theme.of(context).textTheme.headlineSmall, overflow: TextOverflow.ellipsis),
+            Align(
+              alignment: Alignment.center,
+              child: Text(character.name ?? '', style: Theme.of(context).textTheme.headlineSmall, overflow: TextOverflow.ellipsis),
+            ),
             SizedBox(height: Sizes().smallEmptySize),
             Text(character.origin?.name ?? '', style: Theme.of(context).textTheme.bodyMedium, overflow: TextOverflow.ellipsis),
-            SizedBox(height: Sizes().smallEmptySize),
-            Text('${character.species} - ${character.gender ?? ''}',
-                style: Theme.of(context).textTheme.bodyMedium, overflow: TextOverflow.ellipsis, maxLines: 1),
-            SizedBox(height: Sizes().smallEmptySize),
-            Text(character.status ?? '', style: Theme.of(context).textTheme.bodyMedium),
+            // SizedBox(height: Sizes().smallEmptySize),
+            // Text('${character.species} - ${character.gender ?? ''}',
+            //     style: Theme.of(context).textTheme.bodyMedium, overflow: TextOverflow.ellipsis, maxLines: 1),
+            // SizedBox(height: Sizes().smallEmptySize),
+            // Text(character.status ?? '', style: Theme.of(context).textTheme.bodyMedium),
           ],
         ),
       ),

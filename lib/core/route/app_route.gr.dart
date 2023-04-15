@@ -20,7 +20,7 @@ import '../../product/navigation_bar/bottom_navigation_bar.dart'
     deferred as _i1;
 import '../../product/screens/character_detailed_screen/view/character_detail_screen.dart'
     as _i4;
-import '../../product/screens/episodes_screen/episodes_screen.dart' as _i5;
+import '../../product/screens/episodes_screen/view/episodes_screen.dart' as _i5;
 import '../../product/screens/home_screen/view/home_screen.dart' as _i3;
 import '../../product/screens/search_screen/search_screen.dart' as _i6;
 
