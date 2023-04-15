@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rick_and_morty_app/core/constants/colors.dart';
 import 'package:flutter_rick_and_morty_app/core/route/app_route.gr.dart';
 import 'package:flutter_rick_and_morty_app/feature/components/appbar/custom_main_appbar.dart';
 import 'package:flutter_rick_and_morty_app/feature/utils/attributes/attributes.dart';
@@ -23,7 +24,6 @@ class BottomNavigator extends StatelessWidget {
           backgroundColor: Theme.of(context).colorScheme.background,
           body: child,
           bottomNavigationBar: _bottomNavigationBar(context),
-          appBar: const CustomMainAppbar(),
         );
       },
     );
@@ -38,10 +38,8 @@ class BottomNavigator extends StatelessWidget {
       elevation: Attributes().mediumElevation,
       showSelectedLabels: false,
       showUnselectedLabels: false,
-      selectedItemColor: Colors.green,
-      unselectedItemColor: Colors.white,
-      selectedIconTheme: IconThemeData(color: Theme.of(context).primaryColor),
-      unselectedIconTheme: IconThemeData(color: Theme.of(context).disabledColor),
+      selectedIconTheme: IconThemeData(color: Theme.of(context).colorScheme.onPrimary, opacity: 1),
+      unselectedIconTheme: IconThemeData(color: Theme.of(context).colorScheme.onSecondary, opacity: 0.75),
       items: [
         BottomNavigationBarItem(icon: CustomIcons().home, label: '', tooltip: Attributes().home),
         BottomNavigationBarItem(icon: CustomIcons().episodes, label: '', tooltip: Attributes().episodes),

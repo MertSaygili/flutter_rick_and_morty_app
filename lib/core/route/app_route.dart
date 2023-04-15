@@ -2,6 +2,7 @@ import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_route/empty_router_widgets.dart';
 import 'package:flutter_rick_and_morty_app/product/navigation_bar/bottom_navigation_bar.dart';
+import 'package:flutter_rick_and_morty_app/product/screens/character_detailed_screen/view/character_detail_screen.dart';
 import 'package:flutter_rick_and_morty_app/product/screens/episodes_screen/episodes_screen.dart';
 import 'package:flutter_rick_and_morty_app/product/screens/home_screen/view/home_screen.dart';
 import 'package:flutter_rick_and_morty_app/product/screens/search_screen/search_screen.dart';
@@ -20,6 +21,7 @@ import 'package:flutter_rick_and_morty_app/product/screens/search_screen/search_
           path: 'home',
           children: <AutoRoute>[
             AutoRoute(page: HomeScreen, name: 'HomeScreenRoute', path: '', initial: true),
+            AutoRoute(page: CharacterDetailScreen, name: 'CharecterDetailRoute', path: 'characterDetail')
           ],
         ),
         AutoRoute(

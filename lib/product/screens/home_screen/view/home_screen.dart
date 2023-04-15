@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rick_and_morty_app/core/constants/colors.dart';
+import 'package:flutter_rick_and_morty_app/feature/components/appbar/custom_main_appbar.dart';
 import 'package:flutter_rick_and_morty_app/product/screens/home_screen/cubit/home_screen_cubit.dart';
 import 'package:flutter_rick_and_morty_app/product/screens/home_screen/service/home_screen_service.dart';
 import 'package:flutter_rick_and_morty_app/product/screens/home_screen/states/home_screen_states.dart';
@@ -18,8 +19,9 @@ class HomeScreen extends StatelessWidget {
   Widget _buildScaffold() {
     return BlocConsumer<HomeScreenCubit, HomeScreenStates>(
       listener: (context, state) {},
-      builder: (context, state) => SizedBox(
-        child: state is HomeScreenInitialState
+      builder: (context, state) => Scaffold(
+        appBar: const CustomMainAppbar(),
+        body: state is HomeScreenInitialState
             ? _buildLoadingWidget(context)
             : state is HomeScreenLoadedState
                 ? _buildLoadedWidget(context, state)
