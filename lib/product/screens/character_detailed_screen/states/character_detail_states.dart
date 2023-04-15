@@ -1,3 +1,5 @@
+import 'package:flutter_rick_and_morty_app/feature/models/episodes/episode.dart';
+
 abstract class CharacterDetailStates {
   const CharacterDetailStates();
 }
@@ -11,5 +13,6 @@ class CharacterDetailLoadingState extends CharacterDetailStates {
 }
 
 class CharacterDetailLoadedState extends CharacterDetailStates {
-  const CharacterDetailLoadedState();
+  final List<Episode> episodes;
+  const CharacterDetailLoadedState(this.episodes);
 }

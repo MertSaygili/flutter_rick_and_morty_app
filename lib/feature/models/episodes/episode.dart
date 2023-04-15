@@ -1,9 +1,9 @@
 class Episode {
-  String? id;
+  int? id;
   String? name;
   String? airDate;
   String? episode;
-  List<String>? characters;
+  List<dynamic>? characters;
   String? url;
   String? created;
 

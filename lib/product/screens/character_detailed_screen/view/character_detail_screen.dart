@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_rick_and_morty_app/feature/components/appbar/custom_main_appbar.dart';
 import 'package:flutter_rick_and_morty_app/feature/models/character/character.dart';
 import 'package:flutter_rick_and_morty_app/product/screens/character_detailed_screen/cubit/character_detail_cubit.dart';
 import 'package:flutter_rick_and_morty_app/product/screens/character_detailed_screen/service/character_detail_service.dart';
@@ -13,7 +14,7 @@ class CharacterDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => CharacterDetailCubit(CharacterDetailServiceImpl()),
+      create: (context) => CharacterDetailCubit(CharacterDetailServiceImpl(), character),
       child: _buildScaffold(context),
     );
   }
@@ -21,8 +22,9 @@ class CharacterDetailScreen extends StatelessWidget {
   Widget _buildScaffold(BuildContext context) {
     return BlocConsumer<CharacterDetailCubit, CharacterDetailStates>(
       listener: (context, state) {},
-      builder: (context, state) => SizedBox(
-        child: state is CharacterDetailInitialState
+      builder: (context, state) => Scaffold(
+        appBar: const CustomMainAppbar(),
+        body: state is CharacterDetailInitialState
             ? _buildLoadingWidget(context)
             : state is CharacterDetailLoadedState
                 ? _buildLoadedWidget(context, state)
@@ -32,6 +34,7 @@ class CharacterDetailScreen extends StatelessWidget {
   }
 
   Widget _buildLoadingWidget(BuildContext context) {
+    context.read<CharacterDetailCubit>().getEpisodes();
     return const Center(child: CircularProgressIndicator());
   }
 
