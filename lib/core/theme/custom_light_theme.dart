@@ -46,6 +46,29 @@ class CustomLightTheme {
           letterSpacing: 1,
           color: _colorScheme.onPrimary,
         ),
+        bodySmall: TextStyle(
+          fontSize: 14,
+          fontStyle: FontStyle.normal,
+          fontFamily: 'Marvel',
+          letterSpacing: 1,
+          color: _colorScheme.onPrimary,
+        ),
+        displayMedium: const TextStyle(
+          fontSize: 30,
+          fontStyle: FontStyle.normal,
+          fontWeight: FontWeight.bold,
+          fontFamily: 'Marvel',
+          letterSpacing: 0.5,
+          color: CustomColors.black,
+        ),
+        displaySmall: const TextStyle(
+          fontSize: 18,
+          fontStyle: FontStyle.normal,
+          fontWeight: FontWeight.w400,
+          fontFamily: 'Marvel',
+          letterSpacing: 0.5,
+          color: CustomColors.black,
+        ),
       ),
     );
   }

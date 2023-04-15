@@ -18,7 +18,9 @@ class CharacterDetailCubit extends Cubit<CharacterDetailStates> {
   void getEpisodes() async {
     emit(const CharacterDetailLoadingState());
     for (int i = 0; i < character.episode!.length; i++) {
-      episodes.add(await service.getEpisodes(character.episode![i]) ?? Episode());
+      Episode episode = await service.getEpisodes(character.episode![i]) ?? Episode();
+      episodes.add(episode);
+      if (episodes.length % 10 == 0) emit(CharacterDetailLoadedState(episodes));
     }
     characterLocation = await service.getLocation(character.location!.url!) ?? Location();
     emit(CharacterDetailLoadedState(episodes));

@@ -1,5 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rick_and_morty_app/feature/components/cached_network_image/cached_network_image.dart';
 import 'package:flutter_rick_and_morty_app/feature/models/character/character.dart';
 import 'package:flutter_rick_and_morty_app/feature/utils/attributes/attributes.dart';
 import 'package:flutter_rick_and_morty_app/feature/utils/attributes/padding.dart';
@@ -13,18 +13,10 @@ class CharacterUndetailCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: CustomPaddings().marginNormal,
+      padding: CustomPaddings().paddingNormal,
       child: SizedBox(
         height: Sizes().undetailCharacterCardHeight,
-        child: Card(
-          elevation: Attributes().mediumElevation,
-          child: Row(
-            children: [
-              _characterImage(),
-              _characterDetail(context),
-            ],
-          ),
-        ),
+        child: Card(elevation: Attributes().mediumElevation, child: Row(children: [_characterImage(), _characterDetail(context)])),
       ),
     );
   }
@@ -32,7 +24,7 @@ class CharacterUndetailCard extends StatelessWidget {
   Flexible _characterDetail(BuildContext context) {
     return Flexible(
       child: Padding(
-        padding: CustomPaddings().marginNormal,
+        padding: CustomPaddings().paddingNormal,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -53,12 +45,7 @@ class CharacterUndetailCard extends StatelessWidget {
   ClipRRect _characterImage() {
     return ClipRRect(
       borderRadius: BorderRadius.only(topLeft: Radius.circular(Attributes().borderRadius), bottomLeft: Radius.circular(Attributes().borderRadius)),
-      child: CachedNetworkImage(
-        imageUrl: character.image ?? '',
-        progressIndicatorBuilder: (context, url, downloadProgress) => CircularProgressIndicator(value: downloadProgress.progress),
-        errorWidget: (context, url, error) => const Icon(Icons.error),
-        fit: BoxFit.contain,
-      ),
+      child: CustomCachedNetworkImage(imageUrl: character.image ?? ''),
     );
   }
 }
