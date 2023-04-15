@@ -14,7 +14,7 @@ class EpisodeCubit extends Cubit<EpisodeStates> {
 
   void getEpisodes(int page) async {
     emit(const EpisodesLoadingState());
-    episodes = await episodeService.getEpisodes(page++) ?? [];
+    episodes.addAll(await episodeService.getEpisodes(page++) ?? []);
     emit(EpisodesLoadedState(episodes));
   }
 

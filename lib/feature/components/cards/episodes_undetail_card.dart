@@ -12,15 +12,11 @@ class EpisodeUndetailCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: CustomPaddings().marginNormal,
+      padding: CustomPaddings().marginSmall,
       child: SizedBox(
         height: Sizes().undetailEpisodeCardHeight,
         width: MediaQuery.of(context).size.width,
-        child: Card(
-          child: Row(
-            children: [_seasonText(context), _episodeNameDate(context), const Expanded(flex: 5, child: SizedBox())],
-          ),
-        ),
+        child: Card(child: Row(children: [_seasonText(context), _episodeNameDate(context), const Expanded(flex: 5, child: SizedBox())])),
       ),
     );
   }

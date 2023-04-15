@@ -8,8 +8,8 @@ class Attributes {
 
   final double borderRadius = 15;
 
+  final double smallOutsidePadding = 8;
   final double mediumInsidePadding = 12;
-
   final double mediumOutsidePadding = 12;
   final double largeOutsidePadding = 24;
 }
