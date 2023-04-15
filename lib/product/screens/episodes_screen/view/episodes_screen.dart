@@ -24,6 +24,7 @@ class EpisodesScreen extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
+            resizeToAvoidBottomInset: false,
             appBar: const CustomMainAppbar(),
             body: state is EpisodesInitialState
                 ? _buildLoadingWidget(context)

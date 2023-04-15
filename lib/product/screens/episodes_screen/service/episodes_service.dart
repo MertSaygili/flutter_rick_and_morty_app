@@ -15,7 +15,7 @@ class EpisodeServiceImpl extends EpisodeService {
     try {
       var response = await Dio().get('${Constants.EPISODES_BASE_URL}/?page=$page');
       if (response.statusCode == Constants.ok) {
-        return Episode.getEpisodesSnapshot(response.data);
+        return Episode.getEpisodesSnapshot(response.data['results']);
       } else {
         print(response.statusCode);
       }
