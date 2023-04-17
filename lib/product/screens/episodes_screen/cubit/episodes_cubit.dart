@@ -8,7 +8,7 @@ class EpisodeCubit extends Cubit<EpisodeStates> {
 
   final EpisodeService episodeService;
   List<Episode> episodes = [];
-  String searchText = '';
+  List<Episode> searchEpisodesList = [];
   bool isLastPage = false;
   int page = 1;
 
@@ -18,8 +18,24 @@ class EpisodeCubit extends Cubit<EpisodeStates> {
     emit(EpisodesLoadedState(episodes));
   }
 
-  void setSearchText(String newText) {
-    searchText = newText;
+  void getMoreEpisodes() async {
+    List<Episode> newEpisodes = await episodeService.getEpisodes(page++) ?? [];
+    if (newEpisodes.length < 20 || newEpisodes.isEmpty) isLastPage = true;
+    episodes.addAll(newEpisodes);
     emit(EpisodesLoadedState(episodes));
+  }
+
+  void searchEpisodes(String query) async {
+    if (query.isEmpty) emit(EpisodesLoadedState(episodes));
+    if (query.length % 2 == 0) {
+      page = 1;
+      searchEpisodesList = [];
+      searchEpisodesList = await episodeService.searchEpisodes(query) ?? [];
+      emit(EpisodesLoadedState(searchEpisodesList));
+    }
+  }
+
+  void setSearchText(String queryText) {
+    searchEpisodes(queryText);
   }
 }

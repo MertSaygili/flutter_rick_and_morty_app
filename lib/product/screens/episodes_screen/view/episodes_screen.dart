@@ -46,7 +46,7 @@ class EpisodesScreen extends StatelessWidget {
       child: Column(
         children: [
           Expanded(flex: 15, child: Center(child: SearchEpisodeTextField(fun: context.read<EpisodeCubit>().setSearchText))),
-          Expanded(flex: 85, child: EpisodeListview(episodes: state.episodes)),
+          Expanded(flex: 85, child: EpisodeListview(episodes: state.episodes, state: state)),
         ],
       ),
     );
