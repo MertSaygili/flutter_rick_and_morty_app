@@ -37,7 +37,7 @@ class BottomNavigator extends StatelessWidget {
       showSelectedLabels: false,
       showUnselectedLabels: false,
       selectedIconTheme: IconThemeData(color: Theme.of(context).colorScheme.onPrimary, opacity: 1),
-      unselectedIconTheme: IconThemeData(color: Theme.of(context).colorScheme.onSecondary, opacity: 0.75),
+      unselectedIconTheme: IconThemeData(color: Theme.of(context).colorScheme.background, opacity: 0.75),
       items: [
         BottomNavigationBarItem(icon: CustomIcons().home, label: '', tooltip: Attributes().home),
         BottomNavigationBarItem(icon: CustomIcons().episodes, label: '', tooltip: Attributes().episodes),
