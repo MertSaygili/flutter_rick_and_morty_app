@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:auto_route/empty_router_widgets.dart';
 import 'package:flutter_rick_and_morty_app/product/navigation_bar/bottom_navigation_bar.dart';
 import 'package:flutter_rick_and_morty_app/product/screens/character_detailed_screen/view/character_detail_screen.dart';
+import 'package:flutter_rick_and_morty_app/product/screens/episodes_detailed_screen/view/episodes_detailed_screen.dart';
 import 'package:flutter_rick_and_morty_app/product/screens/episodes_screen/view/episodes_screen.dart';
 import 'package:flutter_rick_and_morty_app/product/screens/home_screen/view/home_screen.dart';
 import 'package:flutter_rick_and_morty_app/product/screens/search_screen/view/search_screen.dart';
@@ -21,7 +22,8 @@ import 'package:flutter_rick_and_morty_app/product/screens/search_screen/view/se
           path: 'home',
           children: <AutoRoute>[
             AutoRoute(page: HomeScreen, name: 'HomeScreenRoute', path: '', initial: true),
-            AutoRoute(page: CharacterDetailScreen, name: 'CharecterDetailRoute', path: 'characterDetail')
+            AutoRoute(page: CharacterDetailScreen, name: 'CharecterDetailRoute', path: 'characterDetail'),
+            AutoRoute(page: EpisodesDetailedScreen, name: 'EpisodesDetailedRoute', path: 'episodesDetailed')
           ],
         ),
         AutoRoute(
@@ -30,6 +32,7 @@ import 'package:flutter_rick_and_morty_app/product/screens/search_screen/view/se
           path: 'episodes',
           children: <AutoRoute>[
             AutoRoute(page: EpisodesScreen, name: 'EpisodesScreenRoute', path: '', initial: true),
+            AutoRoute(page: EpisodesDetailedScreen, name: 'EpisodesDetailedRoute', path: 'episodesDetailed')
           ],
         ),
         AutoRoute(
@@ -38,7 +41,8 @@ import 'package:flutter_rick_and_morty_app/product/screens/search_screen/view/se
           path: 'search',
           children: <AutoRoute>[
             AutoRoute(page: SearchScreen, name: 'SearchScreenRoute', path: '', initial: true),
-            AutoRoute(page: CharacterDetailScreen, name: 'CharecterDetailRoute', path: 'characterDetail')
+            AutoRoute(page: CharacterDetailScreen, name: 'CharecterDetailRoute', path: 'characterDetail'),
+            AutoRoute(page: EpisodesDetailedScreen, name: 'EpisodesDetailedRoute', path: 'episodesDetailed')
           ],
         ),
       ],
