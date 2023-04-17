@@ -5,7 +5,7 @@ import 'package:flutter_rick_and_morty_app/product/navigation_bar/bottom_navigat
 import 'package:flutter_rick_and_morty_app/product/screens/character_detailed_screen/view/character_detail_screen.dart';
 import 'package:flutter_rick_and_morty_app/product/screens/episodes_screen/view/episodes_screen.dart';
 import 'package:flutter_rick_and_morty_app/product/screens/home_screen/view/home_screen.dart';
-import 'package:flutter_rick_and_morty_app/product/screens/search_screen/search_screen.dart';
+import 'package:flutter_rick_and_morty_app/product/screens/search_screen/view/search_screen.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
@@ -38,6 +38,7 @@ import 'package:flutter_rick_and_morty_app/product/screens/search_screen/search_
           path: 'search',
           children: <AutoRoute>[
             AutoRoute(page: SearchScreen, name: 'SearchScreenRoute', path: '', initial: true),
+            AutoRoute(page: CharacterDetailScreen, name: 'CharecterDetailRoute', path: 'characterDetail')
           ],
         ),
       ],

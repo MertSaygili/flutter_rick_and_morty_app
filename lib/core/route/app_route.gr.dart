@@ -22,7 +22,7 @@ import '../../product/screens/character_detailed_screen/view/character_detail_sc
     as _i4;
 import '../../product/screens/episodes_screen/view/episodes_screen.dart' as _i5;
 import '../../product/screens/home_screen/view/home_screen.dart' as _i3;
-import '../../product/screens/search_screen/search_screen.dart' as _i6;
+import '../../product/screens/search_screen/view/search_screen.dart' as _i6;
 
 class AppRouter extends _i7.RootStackRouter {
   AppRouter([_i8.GlobalKey<_i8.NavigatorState>? navigatorKey])
@@ -132,7 +132,12 @@ class AppRouter extends _i7.RootStackRouter {
                   SearchScreenRoute.name,
                   path: '',
                   parent: SearchRoute.name,
-                )
+                ),
+                _i7.RouteConfig(
+                  CharecterDetailRoute.name,
+                  path: 'characterDetail',
+                  parent: SearchRoute.name,
+                ),
               ],
             ),
           ],
