@@ -12,5 +12,5 @@ https://user-images.githubusercontent.com/74828364/232625415-8e2013a5-2f93-4ac2-
 <li>flutter_native_splash -> splash screen</li>
 <li>auto_route, auto_route_generator, build_runner -> routing</li>
 <li>dio -> api management</li>
-<li>flutter_block -> state management</li>
+<li>flutter_bloc -> state management</li>
 <li>cached_network_image</li>
