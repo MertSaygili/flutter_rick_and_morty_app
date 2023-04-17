@@ -19,8 +19,11 @@ class EpisodeListview extends StatelessWidget {
       itemBuilder: (context, index) {
         if (index == (state.episodes.length) && context.read<EpisodeCubit>().isLastPage) return null;
         if (index == (state.episodes.length)) {
-          context.read<EpisodeCubit>().getMoreEpisodes();
-          return context.read<EpisodeCubit>().isLastPage == true ? const SizedBox() : const Center(child: CircularProgressIndicator());
+          if (context.read<EpisodeCubit>().searchText.isEmpty) {
+            context.read<EpisodeCubit>().getMoreEpisodes();
+            return context.read<EpisodeCubit>().isLastPage == true ? const SizedBox() : const Center(child: CircularProgressIndicator());
+          }
+          return const SizedBox();
         } else {
           return EpisodeUndetailCard(episode: episodes[index]);
         }
