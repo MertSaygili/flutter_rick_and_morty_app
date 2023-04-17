@@ -17,13 +17,14 @@ class EpisodesDetailedCubit extends Cubit<EpisodesDetailedStates> {
     fetchCharactersLoading = true;
 
     for (int i = 0; i < episode.characters!.length; i++) {
-      characters.add(await service.getCharacter(episode.characters![i]) ?? Character());
       // every three times i will emit state to update UI
-      if (i % 3 == 0 && i != 0) emit(LoadedEpisodesDetailedState(characters));
+      if (i % 4 == 0 && i != 0) emit(LoadedEpisodesDetailedState(characters));
       // when i will be equal to length of characters list, i will set fetchCharactersLoading to false to stop loading
       if (i % 7 == 0) fetchCharactersLoading = false;
+      characters.add(await service.getCharacter(episode.characters![i]) ?? Character());
     }
     // update UI for last time
+    fetchCharactersLoading = false;
     emit(LoadedEpisodesDetailedState(characters));
   }
 }

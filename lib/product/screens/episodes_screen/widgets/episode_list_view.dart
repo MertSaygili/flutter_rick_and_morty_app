@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_rick_and_morty_app/core/route/app_route.gr.dart';
 import 'package:flutter_rick_and_morty_app/feature/components/cards/episodes_undetail_card.dart';
 import 'package:flutter_rick_and_morty_app/feature/models/episodes/episode.dart';
 import 'package:flutter_rick_and_morty_app/product/screens/episodes_screen/cubit/episodes_cubit.dart';
@@ -25,7 +27,10 @@ class EpisodeListview extends StatelessWidget {
           }
           return const SizedBox();
         } else {
-          return EpisodeUndetailCard(episode: episodes[index]);
+          return InkWell(
+            onTap: () => context.router.push(EpisodesDetailedRoute(episode: episodes[index])),
+            child: EpisodeUndetailCard(episode: episodes[index]),
+          );
         }
       },
     );
