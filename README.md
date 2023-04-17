@@ -1,9 +1,9 @@
 # flutter_rick_and_morty_app
 
-Based on the Rick and Morty series, it shows the characters and episodes in that series. The characters are filtered towards the origin they live in.
+Based on the Rick and Morty series, it shows the characters and episodes in that series. The characters are filtered towards the origin they live in.<br>
 
-Rick and Morty API = https://rickandmortyapi.com/
-My figma design = https://www.figma.com/file/sfx9yRDlOuMMXzmGByFSAi/Ricky-And-Morty?t=RAji4Mx4bBPzY2Us-1
+Rick and Morty API = https://rickandmortyapi.com/<br>
+My figma design = https://www.figma.com/file/sfx9yRDlOuMMXzmGByFSAi/Ricky-And-Morty?t=RAji4Mx4bBPzY2Us-1<br>
 
 # Preview 
 https://user-images.githubusercontent.com/74828364/232625415-8e2013a5-2f93-4ac2-8a29-58c15e35456f.mp4
